@@ -1,0 +1,61 @@
+.site-footer {
+  background: #222;
+  padding: 0;
+}
+
+.footer-bar {
+  height: 5px;
+  background: #000;
+  width: 100%;
+}
+
+.footer-content {
+  background: linear-gradient(90deg, #D7C4A3 0%, #5D3A00 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.05rem;
+  color: #222;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-col.right {
+  flex-direction: row; /* располагаем элементы в строку */
+  gap: 30px; /* расстояние между почтой и телефоном */
+  align-items: center;
+  text-align: right;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.contact-item > div:first-child {
+  font-weight: 600;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 700px) {
+  .footer-content {
+    flex-direction: row;
+    font-size: 10px;
+    align-items: left;
+    gap: 12px;
+    text-align: left;
+  }
+  .footer-col.right {
+    flex-direction: row;
+    font-size: 10px;
+    gap: 6px;
+    text-align: right;
+  }
+}
