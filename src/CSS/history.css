@@ -1,0 +1,25 @@
+.bagcraft-container {
+  text-align: center;
+  font-size: 2vw;
+  background: linear-gradient(0deg, #5D3A00, #D7C4A3);
+  gap: 20px;
+  padding-top: 50px;
+}
+
+.div-text h1 {
+  margin: 20px; 
+}
+
+.reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding-bottom: 80px;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+.bagcraft-container {
+  font-size: 5vw;
+}
+}

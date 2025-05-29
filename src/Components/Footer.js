@@ -3,8 +3,8 @@ import '../CSS/footer.css';
 
 function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-bar" />
+    <footer>
+      <div className="separator-bar"  />
       <div className="footer-content">
         <div className="footer-col copyright">
           © Интернет-магазин сумок "BigCraft", 2015

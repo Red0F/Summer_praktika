@@ -1,9 +1,4 @@
-.site-footer {
-  background: #222;
-  padding: 0;
-}
-
-.footer-bar {
+.separator-bar {
   height: 5px;
   background: #000;
   width: 100%;
@@ -16,7 +11,7 @@
   align-items: center;
   padding: 18px 32px;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 1.05rem;
+  font-size: 24px;
   color: #222;
 }
 
@@ -30,32 +25,50 @@
   flex-direction: row; /* располагаем элементы в строку */
   gap: 30px; /* расстояние между почтой и телефоном */
   align-items: center;
-  text-align: right;
+  text-align: center;
 }
 
 .contact-item {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
 }
 
-.contact-item > div:first-child {
-  font-weight: 600;
-}
-
-/* Адаптив для мобильных */
-@media (max-width: 700px) {
+@media (max-width: 450px) {
   .footer-content {
-    flex-direction: row;
-    font-size: 10px;
-    align-items: left;
-    gap: 12px;
-    text-align: left;
+    font-size: 11px;
   }
   .footer-col.right {
-    flex-direction: row;
-    font-size: 10px;
-    gap: 6px;
-    text-align: right;
+    font-size: 11px;
+    gap: 4px;
+  }
+}
+
+@media (min-width: 450x) and (max-width: 768px) {
+  .footer-content {
+    font-size: 12px;
+  }
+  .footer-col.right {
+    font-size: 16px;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+.footer-content {
+    font-size: 16px;
+  }
+  .footer-col.right {
+    font-size: 20px;
+    gap: 50px;
+  }
+}
+
+@media (min-width: 1560px) {
+.footer-content {
+    font-size: 40px;
+  }
+  .footer-col.right {
+    font-size: 40px;
+    gap: 150px;
   }
 }
