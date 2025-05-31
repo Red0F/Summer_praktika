@@ -1,65 +1,61 @@
-import React from "react";
+import React from 'react';
 import "../CSS/home.css";
 import { Container } from "react-bootstrap";
-import img1 from '../img/advantage 1.jpg';
-import img2 from '../img/advantage 2.jpg';
-import img3 from '../img/advantage 3.jpg';
-import img4 from '../img/advantage 4.jpg';
-import img5 from '../img/advantage 5.jpg';
+import img1 from '../img/Icon_phone.png';
+import img2 from '../img/Icon_email.png';
+import img3 from '../img/Icon_telegramm.png';
+import img4 from '../img/Icon_whatshap.png';
+import img5 from '../img/Icon_build.png';
+import {TextList} from "../Components/Hooks";
 
 const reasons = [
   {
     img: img1,
-    title: "Высокое качество материалов",
-    text: "Мы используем только премиальную натуральную кожу и современные прочные ткани, чтобы ваши сумки служили долго и выглядели безупречно.",
+    title: "Телефон",
+    text: "Телефон: +7 (495) 123-45-67",
   },
   {
     img: img2,
-    title: "Уникальный дизайн и разнообразие моделей",
-    text: "В нашем каталоге вы найдете сумки на любой вкус: от классических до ультрамодных, от повседневных до деловых и дорожных.",
+    title: "Почта",
+    text: "Почта: info@bagcraft.ru",
   },
   {
     img: img3,
-    title: "Удобство и функциональность",
-    text: "Каждая сумка продумана до мелочей – удобные отделения, надежные застежки и эргономичные формы.",
+    title: "Телеграмм",
+    text: "Telegramm: https://t.me/bagcraft_official",
   },
   {
     img: img4,
-    title: "Индивидуальный подход",
-    text: "Мы ценим каждого клиента и готовы помочь с выбором, а также предлагаем услуги персонализации.",
+    title: "Вэтсап",
+    text: "WhatsApp: https://wa.me/74951234567",
   },
   {
     img: img5,
-    title: "Гарантия и поддержка",
-    text: "BagCraft обеспечивает полную гарантию качества и быструю поддержку на всех этапах покупки.",
+    title: "Адрес",
+    text: "Адрес: Москва, ул. Примерная, д. 10, ТЦ «Стильный Дом», павильон 15",
   },
 ];
+
+
 
 export default function BagCraftPage() {
   return (
     
       <div className="bagcraft-container">
         <Container fluid>
-          <div className="div-text">
-            <h1>Добро пожаловать в BagCraft – искусство создания идеальных сумок!</h1>
-            <p>
-              В BagCraft мы верим, что сумка – это не просто аксессуар, а отражение вашего стиля, характера и образа жизни. Наша миссия – предложить вам качественные, стильные и функциональные сумки, которые станут надежными спутниками в каждом вашем дне.
-            </p>
-            <h1>Почему выбирают BagCraft?</h1>
-          </div>
           <div className="reasons-list">
             {reasons.map((reason, idx) => (
               <div className="reason-item-vertical" key={idx}>
                 <div className="div-img">
-                  <img src={reason.img} alt={reason.title} className="reason-img" />
+                  <img src={reason.img} alt={reason.title} className="support-img" />
                 </div>
                 <div className="div-text">
-                  <h1>{reason.title}</h1>
                   <p>{reason.text}</p>
                 </div>
               </div>
             ))}
-          </div>    
+          </div>
+          <TextList />    
         </Container>
       </div>
     

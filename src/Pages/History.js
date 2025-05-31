@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/history.css";
+import "../CSS/home.css";
 import { Container } from "react-bootstrap";
 
 

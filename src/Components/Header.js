@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 import logo from '../img/Icon_bag.png'
 import '../CSS/navbar.css'
-import { Routes, Route, NavbarCollapse, NavbarToggle } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Footer from '../Components/Footer'
 import Home from '../Pages/Home';
 import Products from '../Pages/Products';

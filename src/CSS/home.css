@@ -31,6 +31,75 @@
   border: 5px solid #000;
 }
 
+.support-img {
+  width: 80px;
+  height: 80px;
+  border: 0px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.reason-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 28px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.reason-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+
+.reason-card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 2px solid #eee;
+}
+
+.reason-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.reason-card-text {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.order-btn {
+  background: linear-gradient(90deg, #f7e7c6 0%, #ede3cd 100%);
+  color: #6d5b38;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.order-btn:hover {
+  background: linear-gradient(90deg, #f7e7c6 30%, #d6c2a3 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
 @media (min-width: 768px) and (max-width: 1000px) {
 .reason-img {
   width: 232px;
