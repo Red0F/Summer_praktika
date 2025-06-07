@@ -31,12 +31,6 @@
   border: 5px solid #000;
 }
 
-.support-img {
-  width: 80px;
-  height: 80px;
-  border: 0px;
-}
-
 .reasons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -100,6 +94,64 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
+/* Support */
+
+.reasons-list-support {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 80px;
+  padding-top: 40px;
+}
+.reason-item-vertical-support {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.support-img {
+  width: 80px;
+  height: 80px;
+  border: 0px;
+}
+.feedback-form {
+  background: #f9f6f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #5a3b0b;
+}
+.feedback-form input,
+.feedback-form textarea {
+  background: #7d5425;
+  color: #fff;
+  border: none;
+  margin-top: 4px;
+  padding: 8px;
+  border-radius: 4px;
+}
+.feedback-form button {
+  background: #5a3b0b;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.feedback-success {
+  color: wheat;
+  font-size: 2vw;
+  margin-top: 24px;
+}
+
+
 @media (min-width: 768px) and (max-width: 1000px) {
 .reason-img {
   width: 232px;
@@ -110,6 +162,9 @@
 }
 
 @media (max-width: 768px) {
+.div-text {
+  font-size: 1rem;
+}
 .reason-item-vertical {
   display: flex;
   align-items: center;

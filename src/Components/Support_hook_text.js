@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
   
-
-
 const data = [
     { id: 1, title: 'Условия доставки', hiddenText: [
         'Бесплатная доставка при заказе от 5 000 рублей. Для заказов ниже этой суммы стоимость доставки составляет 300 рублей.',
@@ -34,12 +32,12 @@ const [activeId, setActiveId] = useState(null);
     return (
         <div>
         {items.map(({ id, title, hiddenText }) => (
-            <div key={id} style={{ marginBottom: '10px', cursor: 'pointer', color: 'black' }}>
+            <div key={id} style={{ marginBottom: '40px', cursor: 'pointer', color: 'black' }}>
             <div onClick={() => handleClick(id)}>
                 {title}
             </div>
             {activeId === id && (
-                <div style={{ marginTop: '5px', color: 'black' }}>
+                <div style={{ margin: '5px', color: 'black' }}>
                 {Array.isArray(hiddenText) ? (
                     <ul>
                     {hiddenText.map((point, idx) => (

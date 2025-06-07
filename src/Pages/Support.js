@@ -3,10 +3,11 @@ import "../CSS/home.css";
 import { Container } from "react-bootstrap";
 import img1 from '../img/Icon_phone.png';
 import img2 from '../img/Icon_email.png';
-import img3 from '../img/Icon_telegramm.png';
+import img3 from '../img/Icon_telegram.png';
 import img4 from '../img/Icon_whatshap.png';
 import img5 from '../img/Icon_build.png';
-import {TextList} from "../Components/Hooks";
+import {TextList} from "../Components/Support_hook_text";
+import FeedbackForm from '../Components/Feedback_support';
 
 const reasons = [
   {
@@ -43,9 +44,9 @@ export default function BagCraftPage() {
     
       <div className="bagcraft-container">
         <Container fluid>
-          <div className="reasons-list">
+          <div className="reasons-list-support">
             {reasons.map((reason, idx) => (
-              <div className="reason-item-vertical" key={idx}>
+              <div className="reason-item-vertical-support" key={idx}>
                 <div className="div-img">
                   <img src={reason.img} alt={reason.title} className="support-img" />
                 </div>
@@ -55,7 +56,8 @@ export default function BagCraftPage() {
               </div>
             ))}
           </div>
-          <TextList />    
+          <TextList />   
+          <FeedbackForm /> 
         </Container>
       </div>
     
