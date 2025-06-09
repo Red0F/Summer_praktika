@@ -10,9 +10,7 @@ export default function FeedbackForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Здесь можно добавить отправку данных на сервер
     setSubmitted(true);
-    // Например, fetch('/api/feedback', { method: 'POST', body: JSON.stringify(form) })
   };
 
   if (submitted) {
