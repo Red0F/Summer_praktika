@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import "../CSS/home.css";
+import PaymentForm from "../Components/Payment_form";
+import ProductList from "../Components/Product_list";
 
+// Import images statically
 import img1 from "../img/Product_1.jpg";
 import img2 from "../img/Product_2.jpg";
 import img3 from "../img/Product_3.jpg";
 import img4 from "../img/Product_4.jpg";
 import img5 from "../img/Product_5.jpg";
 import img6 from "../img/Product_6.jpg";
-import PaymentForm from "../Components/Payment_form";
-import ProductList from "../Components/Product_list";
 
-const productsDatabase = {
-  "1": { name: "Сумка кожаная классическая", price: 3500, image: img1 },
-  "2": { name: "Сумка кожаная из Италии", price: 20000, image: img2 },
-  "3": { name: "Сумка кожаная", price: 3500, image: img3 },
-  "4": { name: "Сумка для путешествий", price: 4500, image: img4 },
-  "5": { name: "Сумка лёгкая", price: 2500, image: img5 },
-  "6": { name: "Сумка чёрная", price: 3500, image: img6 }
-};
-
-const orderData = {
-  order: [{ id: "1", order_products: ['1'] }]
+// Map image IDs from the media array to imported images
+const imageMap = {
+  "12": img1,
+  "13": img2,
+  "14": img3,
+  "15": img4,
+  "16": img5,
+  "17": img6
 };
 
 // Простая функция валидации
@@ -94,13 +92,50 @@ export default function PaymentPage() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
-    const orderProducts = orderData.order[0].order_products;
-    const loadedProducts = orderProducts.map(id => ({
-      ...productsDatabase[id],
-      id,
-      quantity: 1
-    }));
-    setProducts(loadedProducts);
+    const fetchData = async () => {
+      try {
+        // Fetch products
+        const productsResponse = await fetch("http://localhost:3001/products");
+        const productsData = await productsResponse.json();
+
+        // Fetch order
+        const orderResponse = await fetch("http://localhost:3001/order");
+        const orderData = await orderResponse.json();
+
+        // Fetch media for images
+        const mediaResponse = await fetch("http://localhost:3001/media");
+        const mediaData = await mediaResponse.json();
+
+        // Map products to include images
+        const productsDatabase = productsData.reduce((acc, product) => {
+          const mediaItem = mediaData.find(
+            media => media.pages === "products" && media.id === (parseInt(product.id) + 11).toString()
+          );
+          acc[product.id] = {
+            name: product.title,
+            price: parseInt(product.cost.replace(" руб.", "")),
+            image: mediaItem ? imageMap[mediaItem.id] : null
+          };
+          return acc;
+        }, {});
+
+        // Load products from order
+        const orderProducts = orderData[0].order_products;
+        const loadedProducts = orderProducts
+          .filter(id => productsDatabase[id]) // Ensure product exists
+          .map(id => ({
+            ...productsDatabase[id],
+            id,
+            quantity: 1
+          }));
+        setProducts(loadedProducts);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        alert("Ошибка при загрузке данных. Попробуйте позже.");
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -124,16 +159,30 @@ export default function PaymentPage() {
     setErrors({});
   };
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     const validationErrors = validateForm(formData);
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-        handleClear();
-      }, 5000);
+      try {
+        // Clear the cart on the server
+        await fetch("http://localhost:3001/order/1", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ order_products: [] })
+        });
+
+        setShowSuccess(true);
+        setTimeout(() => {
+          setShowSuccess(false);
+          handleClear();
+        }, 5000);
+      } catch (error) {
+        console.error("Error clearing cart on server:", error);
+        alert("Ошибка при очистке корзины. Пожалуйста, попробуйте снова.");
+      }
     }
   };
 
@@ -147,8 +196,37 @@ export default function PaymentPage() {
     );
   };
 
-  const handleRemoveProduct = id => {
-    setProducts(products => products.filter(product => product.id !== id));
+  const handleRemoveProduct = async id => {
+    try {
+      // Fetch current order
+      const orderResponse = await fetch("http://localhost:3001/order/1");
+      if (!orderResponse.ok) {
+        throw new Error("Failed to fetch order");
+      }
+      const orderData = await orderResponse.json();
+
+      // Remove the product ID from order_products
+      const updatedOrderProducts = orderData.order_products.filter(productId => productId !== id);
+
+      // Update the server
+      const updateResponse = await fetch("http://localhost:3001/order/1", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ order_products: updatedOrderProducts })
+      });
+
+      if (!updateResponse.ok) {
+        throw new Error("Failed to update order on server");
+      }
+
+      // Update local state
+      setProducts(products => products.filter(product => product.id !== id));
+    } catch (error) {
+      console.error("Error removing product from server:", error);
+      alert("Ошибка при удалении товара. Попробуйте снова.");
+    }
   };
 
   return (

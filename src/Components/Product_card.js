@@ -11,10 +11,10 @@ export default function ProductCard({ product, onQuantityChange, onRemove }) {
         <h4>{product.name}</h4>
         <p>Цена: {product.price} руб.</p>
 
-          <span className="quantity-label">Количество товара</span>
+        <span className="quantity-label">Количество товара</span>
 
-          <div className="quantity-controls">
-            <div className="quantity-wrapper">
+        <div className="quantity-controls">
+          <div className="quantity-wrapper">
             <button
               className="quantity-btn"
               onClick={() => onQuantityChange(product.id, -1)}
