@@ -1,0 +1,144 @@
+{
+  "media": [
+    {
+      "id": "1",
+      "type": "image",
+      "pages": "home",
+      "url": "./media/advantage_1.jpg"
+    },
+    {
+      "id": "2",
+      "type": "image",
+      "pages": "home",
+      "url": "./media/advantage_2.jpg"
+    },
+    {
+      "id": "3",
+      "type": "image",
+      "pages": "home",
+      "url": "./media/advantage_3.jpg"
+    },
+    {
+      "id": "4",
+      "type": "image",
+      "pages": "home",
+      "url": "./media/advantage_4.jpg"
+    },
+    {
+      "id": "5",
+      "type": "image",
+      "pages": "home",
+      "url": "./media/advantage_5.jpg"
+    },
+    {
+      "id": "6",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_bag.png"
+    },
+    {
+      "id": "7",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_build.png"
+    },
+    {
+      "id": "8",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_email.png"
+    },
+    {
+      "id": "9",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_phone.png"
+    },
+    {
+      "id": "10",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_telegram.png"
+    },
+    {
+      "id": "11",
+      "type": "image",
+      "pages": "support",
+      "url": "./media/Icon_whatshap.png"
+    },
+    {
+      "id": "12",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_1.jpg"
+    },
+    {
+      "id": "13",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_2.jpg"
+    },
+    {
+      "id": "14",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_3.jpg"
+    },
+    {
+      "id": "15",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_4.jpg"
+    },
+    {
+      "id": "16",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_5.jpg"
+    },
+    {
+      "id": "17",
+      "type": "image",
+      "pages": "products",
+      "url": "./media/Product_6.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Сумка кожаная",
+      "cost": "3500 руб."
+    },
+    {
+      "id": "2",
+      "title": "Сумка кожаная Италия",
+      "cost": "20000 руб."
+    },
+    {
+      "id": "3",
+      "title": "Сумка кожаная",
+      "cost": "4500 руб."
+    },
+    {
+      "id": "4",
+      "title": "Сумка для путешествий",
+      "cost": "4500 руб."
+    },
+    {
+      "id": "5",
+      "title": "Сумка лёгкая",
+      "cost": "2500 руб."
+    },
+    {
+      "id": "6",
+      "title": "Сумка чёрная",
+      "cost": "3500 руб."
+    }
+  ],
+  "order": [
+    {
+      "id": "1",
+      "order_products": []
+    }
+  ]
+}

@@ -1,12 +1,14 @@
 import './App.css';
+import { OrderProvider } from "./Components/OrderContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header'
 
 function App() {
   return (
-    <div>
+    <OrderProvider>
       <Header />
-    </div>
+    
+    </OrderProvider>
   )
 }
 

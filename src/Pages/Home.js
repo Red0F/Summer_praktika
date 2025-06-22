@@ -1,11 +1,11 @@
 import React from "react";
 import "../CSS/home.css";
 import { Container } from "react-bootstrap";
-import img1 from '../img/advantage 1.jpg';
-import img2 from '../img/advantage 2.jpg';
-import img3 from '../img/advantage 3.jpg';
-import img4 from '../img/advantage 4.jpg';
-import img5 from '../img/advantage 5.jpg';
+import img1 from '../img/advantage_1.jpg';
+import img2 from '../img/advantage_2.jpg';
+import img3 from '../img/advantage_3.jpg';
+import img4 from '../img/advantage_4.jpg';
+import img5 from '../img/advantage_5.jpg';
 
 const reasons = [
   {
@@ -59,7 +59,7 @@ export default function BagCraftPage() {
                 </div>
               </div>
             ))}
-          </div>    
+          </div>   
         </Container>
       </div>
     
